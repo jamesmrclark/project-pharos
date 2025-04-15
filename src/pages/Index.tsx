@@ -35,8 +35,8 @@ const Index = () => {
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-12 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          Making paid social{" "}
-          <span className="text-red-600 font-bold">WORK FOR YOU</span>, LESS
+          MAKE PAID SOCIAL{" "}
+          <span className="text-red-600 font-bold">WORK FOR YOU</span>
         </h1>
         <h2 className="text-2xl md:text-3xl font-semibold mb-12">
           LESS HASSLE, MORE RESULTS AND SMARTER GROWTH

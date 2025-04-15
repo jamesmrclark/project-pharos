@@ -1,7 +1,5 @@
-
-import { Button } from "@/components/ui/button"
-import { NavigationMenu } from "@/components/ui/navigation-menu"
-import { Link } from "react-router-dom"
+import { Button } from "@/components/ui/button";
+import CampaignCalculator from "@/components/CampaignCalculator";
 
 const Index = () => {
   return (
@@ -13,7 +11,7 @@ const Index = () => {
             <img 
               src="/lovable-uploads/58f2fe72-ee9e-4d6c-8817-579983c89748.png" 
               alt="Pharos Logo" 
-              className="w-16 h-16" // Increased logo size from w-12 h-12 to w-16 h-16
+              className="w-16 h-16"
             />
             <span className="text-2xl font-bold">PHAROS</span>
           </div>
@@ -61,12 +59,13 @@ const Index = () => {
         </div>
 
         {/* Calculator Section */}
-        <div className="bg-[#2B5C8F] text-white py-6">
-          <h3 className="text-3xl font-bold">THE PHAROS FREE CALCULATOR</h3>
+        <div className="bg-[#2B5C8F] text-white py-12">
+          <h3 className="text-3xl font-bold text-center mb-8">THE PHAROS FREE CALCULATOR</h3>
+          <CampaignCalculator />
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

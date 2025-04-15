@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button"
 import { NavigationMenu } from "@/components/ui/navigation-menu"
 import { Link } from "react-router-dom"
@@ -11,7 +10,7 @@ const Index = () => {
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-2">
             <img 
-              src="/lovable-uploads/3f49aeab-956b-45f8-902c-03f9c10840d3.png" 
+              src="/lovable-uploads/58f2fe72-ee9e-4d6c-8817-579983c89748.png" 
               alt="Pharos Logo" 
               className="w-12 h-12"
             />

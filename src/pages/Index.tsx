@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button"
 import { NavigationMenu } from "@/components/ui/navigation-menu"
 import { Link } from "react-router-dom"
@@ -12,7 +13,7 @@ const Index = () => {
             <img 
               src="/lovable-uploads/58f2fe72-ee9e-4d6c-8817-579983c89748.png" 
               alt="Pharos Logo" 
-              className="w-12 h-12"
+              className="w-16 h-16" // Increased logo size from w-12 h-12 to w-16 h-16
             />
             <span className="text-2xl font-bold">PHAROS</span>
           </div>
@@ -35,10 +36,10 @@ const Index = () => {
       <section className="container mx-auto px-6 py-12 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Making paid social{" "}
-          <span className="text-red-600">WORK FOR YOU</span>, LESS
+          <span className="text-red-600 font-bold">WORK FOR YOU</span>, LESS
         </h1>
-        <h2 className="text-2xl md:text-3xl font-bold mb-12">
-          HASSLE, MORE RESULTS AND SMARTER GROWTH
+        <h2 className="text-2xl md:text-3xl font-semibold mb-12">
+          LESS HASSLE, MORE RESULTS AND SMARTER GROWTH
         </h2>
 
         {/* CTA Buttons */}

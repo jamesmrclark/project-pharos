@@ -34,10 +34,10 @@ const CampaignCalculator = () => {
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="platform" className="text-sm font-medium">Social Platform</Label>
+          <Label htmlFor="platform" className="text-sm font-medium">Social Platform:</Label>
           <Select onValueChange={setSocialPlatform} value={socialPlatform}>
             <SelectTrigger id="platform">
-              <SelectValue placeholder="Select platform" />
+              <SelectValue placeholder="Select social media platform" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="instagram">Instagram</SelectItem>
@@ -50,29 +50,29 @@ const CampaignCalculator = () => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="reach" className="text-sm font-medium">Targeted Reach</Label>
+          <Label htmlFor="reach" className="text-sm font-medium">Total Reach (Users):</Label>
           <Input 
             id="reach"
             type="number" 
-            placeholder="Enter targeted reach"
+            placeholder="Enter expected number of users to reach"
             value={totalReach}
             onChange={(e) => setTotalReach(e.target.value)}
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="followers" className="text-sm font-medium">Follower Count</Label>
+          <Label htmlFor="followers" className="text-sm font-medium">Follower Count:</Label>
           <Input 
             id="followers"
             type="number" 
-            placeholder="Enter follower count"
+            placeholder="Enter total number of followers"
             value={followerCount}
             onChange={(e) => setFollowerCount(e.target.value)}
           />
         </div>
 
         <div className="space-y-2">
-          <Label className="text-sm font-medium">Campaign Length</Label>
+          <Label className="text-sm font-medium">Campaign Length:</Label>
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -93,7 +93,7 @@ const CampaignCalculator = () => {
                     format(date.from, "LLL dd, y")
                   )
                 ) : (
-                  <span>Pick a date range</span>
+                  <span>Select campaign start and end dates</span>
                 )}
               </Button>
             </PopoverTrigger>
@@ -112,11 +112,11 @@ const CampaignCalculator = () => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="deliverables" className="text-sm font-medium">Number of Deliverables</Label>
+          <Label htmlFor="deliverables" className="text-sm font-medium">Number of Deliverables:</Label>
           <Input 
             id="deliverables"
             type="number" 
-            placeholder="Enter number of deliverables"
+            placeholder="Enter total number of campaign assets"
             value={deliverables}
             onChange={(e) => setDeliverables(e.target.value)}
           />

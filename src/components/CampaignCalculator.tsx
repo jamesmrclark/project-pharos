@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
@@ -35,7 +34,7 @@ const CampaignCalculator = () => {
       <div className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="platform" className="text-sm font-medium">Social Platform:</Label>
-          <p className="text-xs text-gray-500 mb-1">Choose the social media platform for your campaign</p>
+          <p className="text-xs text-gray-500 mb-1 text-left font-bold">**Social Platform**</p>
           <Select onValueChange={setSocialPlatform} value={socialPlatform}>
             <SelectTrigger id="platform">
               <SelectValue placeholder="Select social media platform" />
@@ -52,7 +51,7 @@ const CampaignCalculator = () => {
 
         <div className="space-y-2">
           <Label htmlFor="reach" className="text-sm font-medium">Total Reach (Users):</Label>
-          <p className="text-xs text-gray-500 mb-1">Estimate the total number of users you want to reach with your campaign</p>
+          <p className="text-xs text-gray-500 mb-1 text-left font-bold">**Targeted Reach**</p>
           <Input 
             id="reach"
             type="number" 
@@ -64,7 +63,7 @@ const CampaignCalculator = () => {
 
         <div className="space-y-2">
           <Label htmlFor="followers" className="text-sm font-medium">Follower Count:</Label>
-          <p className="text-xs text-gray-500 mb-1">Enter the total number of followers for your account or target audience</p>
+          <p className="text-xs text-gray-500 mb-1 text-left font-bold">**Follower Count**</p>
           <Input 
             id="followers"
             type="number" 
@@ -76,7 +75,7 @@ const CampaignCalculator = () => {
 
         <div className="space-y-2">
           <Label className="text-sm font-medium">Campaign Length:</Label>
-          <p className="text-xs text-gray-500 mb-1">Select the start and end dates for your campaign</p>
+          <p className="text-xs text-gray-500 mb-1 text-left font-bold">**Campaign Length**</p>
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -117,7 +116,7 @@ const CampaignCalculator = () => {
 
         <div className="space-y-2">
           <Label htmlFor="deliverables" className="text-sm font-medium">Number of Deliverables:</Label>
-          <p className="text-xs text-gray-500 mb-1">Specify the total number of campaign assets or content pieces</p>
+          <p className="text-xs text-gray-500 mb-1 text-left font-bold">**Number of Deliverables**</p>
           <Input 
             id="deliverables"
             type="number" 

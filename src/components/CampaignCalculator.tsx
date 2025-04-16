@@ -8,12 +8,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Calendar } from "./ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
+import { DateRange } from "react-day-picker";
 
 const CampaignCalculator = () => {
   const [socialPlatform, setSocialPlatform] = useState<string>("");
   const [totalReach, setTotalReach] = useState("");
   const [followerCount, setFollowerCount] = useState("");
-  const [campaignDate, setCampaignDate] = useState<Date>();
+  const [date, setDate] = useState<DateRange | undefined>({
+    from: undefined,
+    to: undefined,
+  });
   const [deliverables, setDeliverables] = useState("");
 
   const handleCalculate = () => {
@@ -29,9 +34,9 @@ const CampaignCalculator = () => {
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <label className="text-sm font-medium">Social Platform:</label>
+          <Label htmlFor="platform" className="text-sm font-medium">Social Platform</Label>
           <Select onValueChange={setSocialPlatform} value={socialPlatform}>
-            <SelectTrigger>
+            <SelectTrigger id="platform">
               <SelectValue placeholder="Select platform" />
             </SelectTrigger>
             <SelectContent>
@@ -45,18 +50,20 @@ const CampaignCalculator = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium">Total Reach (Users):</label>
+          <Label htmlFor="reach" className="text-sm font-medium">Targeted Reach</Label>
           <Input 
+            id="reach"
             type="number" 
-            placeholder="Enter reach"
+            placeholder="Enter targeted reach"
             value={totalReach}
             onChange={(e) => setTotalReach(e.target.value)}
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium">Follower Count:</label>
+          <Label htmlFor="followers" className="text-sm font-medium">Follower Count</Label>
           <Input 
+            id="followers"
             type="number" 
             placeholder="Enter follower count"
             value={followerCount}
@@ -65,35 +72,49 @@ const CampaignCalculator = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium">Campaign Length:</label>
+          <Label className="text-sm font-medium">Campaign Length</Label>
           <Popover>
             <PopoverTrigger asChild>
               <Button
+                id="date"
                 variant="outline"
                 className={cn(
                   "w-full justify-start text-left font-normal",
-                  !campaignDate && "text-muted-foreground"
+                  !date && "text-muted-foreground"
                 )}
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
-                {campaignDate ? format(campaignDate, "PPP") : <span>Pick a date</span>}
+                {date?.from ? (
+                  date.to ? (
+                    <>
+                      {format(date.from, "LLL dd, y")} - {format(date.to, "LLL dd, y")}
+                    </>
+                  ) : (
+                    format(date.from, "LLL dd, y")
+                  )
+                ) : (
+                  <span>Pick a date range</span>
+                )}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">
               <Calendar
-                mode="single"
-                selected={campaignDate}
-                onSelect={setCampaignDate}
                 initialFocus
-                className="pointer-events-auto"
+                mode="range"
+                defaultMonth={date?.from}
+                selected={date}
+                onSelect={setDate}
+                numberOfMonths={2}
+                className={cn("p-3 pointer-events-auto")}
               />
             </PopoverContent>
           </Popover>
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium">Number of Deliverables:</label>
+          <Label htmlFor="deliverables" className="text-sm font-medium">Number of Deliverables</Label>
           <Input 
+            id="deliverables"
             type="number" 
             placeholder="Enter number of deliverables"
             value={deliverables}

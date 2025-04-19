@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
@@ -27,7 +28,7 @@ const CampaignCalculator = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6 bg-white rounded-lg shadow">
-      <p className="text-lg text-center mb-8">
+      <p className="text-lg text-center font-bold mb-8">
         Our free calculator is designed to help you work out how much you should be spending on paid social, to hit a certain goal.
       </p>
 

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
@@ -38,7 +37,7 @@ const CampaignCalculator = () => {
           <p className="text-xs text-gray-500 mb-1 text-left font-bold">Social Platform</p>
           <Select onValueChange={setSocialPlatform} value={socialPlatform}>
             <SelectTrigger id="platform">
-              <SelectValue placeholder="Select social media platform" />
+              <SelectValue placeholder="Select Platform" className="text-black" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="instagram">Instagram</SelectItem>
@@ -59,6 +58,7 @@ const CampaignCalculator = () => {
             placeholder="Enter expected number of users to reach"
             value={totalReach}
             onChange={(e) => setTotalReach(e.target.value)}
+            className="text-black"
           />
         </div>
 
@@ -71,6 +71,7 @@ const CampaignCalculator = () => {
             placeholder="Enter total number of followers"
             value={followerCount}
             onChange={(e) => setFollowerCount(e.target.value)}
+            className="text-black"
           />
         </div>
 
@@ -124,6 +125,7 @@ const CampaignCalculator = () => {
             placeholder="Enter total number of campaign assets"
             value={deliverables}
             onChange={(e) => setDeliverables(e.target.value)}
+            className="text-black"
           />
         </div>
 
@@ -147,4 +149,3 @@ const CampaignCalculator = () => {
 };
 
 export default CampaignCalculator;
-

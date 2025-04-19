@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
@@ -33,7 +34,8 @@ const CampaignCalculator = () => {
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="platform" className="text-sm font-medium">Select Platform</Label>
+          <Label htmlFor="platform" className="text-sm font-medium">Social Platform:</Label>
+          <p className="text-xs text-gray-500 mb-1 text-left font-bold">Social Platform</p>
           <Select onValueChange={setSocialPlatform} value={socialPlatform}>
             <SelectTrigger id="platform">
               <SelectValue placeholder="Select social media platform" />
@@ -73,7 +75,7 @@ const CampaignCalculator = () => {
         </div>
 
         <div className="space-y-2">
-          <Label className="text-sm font-medium">Campaign Length</Label>
+          <Label className="text-sm font-medium">Campaign Length:</Label>
           <p className="text-xs text-gray-500 mb-1 text-left font-bold">Campaign Length</p>
           <Popover>
             <PopoverTrigger asChild>
@@ -95,7 +97,7 @@ const CampaignCalculator = () => {
                     format(date.from, "LLL dd, y")
                   )
                 ) : (
-                  <span>Select campaign start and end dates</span>
+                  <span>Select Date</span>
                 )}
               </Button>
             </PopoverTrigger>
@@ -145,3 +147,4 @@ const CampaignCalculator = () => {
 };
 
 export default CampaignCalculator;
+

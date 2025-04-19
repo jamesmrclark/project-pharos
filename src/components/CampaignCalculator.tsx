@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
@@ -25,6 +26,12 @@ const CampaignCalculator = () => {
     console.log("Calculating...");
   };
 
+  // Helper function to format the platform name
+  const formatPlatformName = (platform: string) => {
+    if (!platform) return "";
+    return platform.charAt(0).toUpperCase() + platform.slice(1);
+  };
+
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6 bg-white rounded-lg shadow">
       <p className="text-lg text-center font-bold mb-8 text-black text-2xl">
@@ -37,7 +44,9 @@ const CampaignCalculator = () => {
           <p className="text-xs text-gray-500 mb-1 text-left font-bold">Social Platform</p>
           <Select onValueChange={setSocialPlatform} value={socialPlatform}>
             <SelectTrigger id="platform">
-              <SelectValue placeholder="Select Platform" className="text-black" />
+              <SelectValue placeholder="Select Platform" className="text-black font-medium">
+                {socialPlatform ? formatPlatformName(socialPlatform) : "Select Platform"}
+              </SelectValue>
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="instagram">Instagram</SelectItem>
@@ -84,21 +93,21 @@ const CampaignCalculator = () => {
                 id="date"
                 variant="outline"
                 className={cn(
-                  "w-full justify-start text-left font-normal",
-                  !date && "text-muted-foreground"
+                  "w-full justify-start text-left font-normal text-black",
+                  !date?.from && "text-muted-foreground"
                 )}
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
                 {date?.from ? (
                   date.to ? (
-                    <>
+                    <span className="font-medium">
                       {format(date.from, "LLL dd, y")} - {format(date.to, "LLL dd, y")}
-                    </>
+                    </span>
                   ) : (
-                    format(date.from, "LLL dd, y")
+                    <span className="font-medium">{format(date.from, "LLL dd, y")}</span>
                   )
                 ) : (
-                  <span>Select Date</span>
+                  <span>Select campaign start and end dates</span>
                 )}
               </Button>
             </PopoverTrigger>
